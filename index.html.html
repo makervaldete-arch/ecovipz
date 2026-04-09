@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLegado 2026 - EEB Profª Valdete Inês Piazera Zindars</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;700&display=swap');
+       
+        :root {
+            --nature-600: #059669;
+            --nature-900: #064e3b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .hero-pattern {
+            background-color: #f0fdf4;
+            background-image: radial-gradient(#10b981 0.5px, transparent 0.5px), radial-gradient(#10b981 0.5px, #f0fdf4 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        .image-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .image-card:hover {
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        .floating-qr {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .scroll-indicator {
+            width: 2px;
+            height: 60px;
+            background: linear-gradient(to bottom, #10b981, transparent);
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- QR Code de Partilha -->
+    <div class="floating-qr hidden lg:block">
+        <div class="bg-white p-4 rounded-3xl shadow-2xl border border-emerald-100 text-center">
+            <img id="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://ecolegado2026.com" alt="QR Code" class="mx-auto rounded-xl">
+            <span class="text-[10px] font-bold text-emerald-700 block mt-2 tracking-widest uppercase">Partilha o Projeto</span>
+        </div>
+    </div>
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-xl border-b border-emerald-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-emerald-200">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight text-emerald-950">ECOLEGADO</span>
+            </div>
+            <div class="hidden md:flex gap-8 font-bold text-sm uppercase tracking-wider text-emerald-900">
+                <a href="#inicio" class="hover:text-emerald-600 transition">Início</a>
+                <a href="#galeria" class="hover:text-emerald-600 transition">Galeria</a>
+                <a href="#educacao" class="hover:text-emerald-600 transition">Educação</a>
+                <a href="#quiz" class="hover:text-emerald-600 transition">Desafio</a>
+                <button onclick="openLogin()" class="bg-emerald-100 text-emerald-700 px-5 py-2 rounded-full hover:bg-emerald-600 hover:text-white transition">Acesso</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="pt-32 pb-20 hero-pattern px-6 overflow-hidden">
+        <div class="container mx-auto text-center relative">
+            <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-8">
+                <i class="fas fa-globe-americas animate-spin-slow"></i>
+                Projeto Escolar 2026
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black text-emerald-950 mb-8 leading-none">
+                Pequenos Atos, <br><span class="text-emerald-600">Grandes Legados.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+                Bem-vindo ao portal de conscientização da **EEB Profª Valdete Inês Piazera Zindars**. Aqui, transformamos conhecimento em ação para proteger o nosso futuro.
+            </p>
+            <div class="scroll-indicator mb-10"></div>
+        </div>
+    </header>
+
+    <!-- Grid de Conteúdo Visual Impactante -->
+    <section class="py-20 container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Card Principal -->
+            <div class="md:col-span-8 bg-emerald-900 rounded-[40px] overflow-hidden relative group p-12 text-white min-h-[450px] flex flex-col justify-end image-card">
+                <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition duration-700" alt="Floresta Tropical">
+                <div class="relative z-10">
+                    <h3 class="text-4xl font-black mb-4">O Pulmão do Mundo</h3>
+                    <p class="max-w-xl text-emerald-50 opacity-90 text-lg mb-6">As florestas tropicais abrigam mais de 50% da biodiversidade terrestre. Proteger cada árvore é garantir o oxigénio e o equilíbrio do clima global.</p>
+                    <div class="flex gap-4">
+                        <span class="bg-emerald-500/20 backdrop-blur-md px-4 py-2 rounded-xl text-xs font-bold border border-emerald-400/30">#Amazónia</span>
+                        <span class="bg-emerald-500/20 backdrop-blur-md px-4 py-2 rounded-xl text-xs font-bold border border-emerald-400/30">#Biodiversidade</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Água -->
+            <div class="md:col-span-4 bg-sky-900 rounded-[40px] overflow-hidden relative group p-10 text-white min-h-[450px] flex flex-col justify-end image-card">
+                <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition duration-700" alt="Oceano Azul">
+                <div class="relative z-10">
+                    <div class="text-sky-300 text-3xl mb-6"><i class="fas fa-tint"></i></div>
+                    <h4 class="text-2xl font-black mb-4">Ouro Azul</h4>
+                    <p class="text-sky-50 opacity-80 mb-6">Menos de 1% da água do planeta é doce e acessível. A preservação começa na nossa consciência.</p>
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20">
+                        <p class="text-xs font-bold italic">"Uma torneira a pingar gasta 46 litros por dia."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria da Biodiversidade -->
+    <section id="galeria" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black text-emerald-950 mb-4">O Que Estamos a Proteger</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Imagens que nos lembram da beleza e fragilidade do mundo que herdámos.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Imagem 1 -->
+                <div class="group relative rounded-3xl overflow-hidden shadow-xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Paisagem de Montanha">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <p class="text-white text-sm font-bold">Ar Puro e Montanhas</p>
+                    </div>
+                </div>
+                <!-- Imagem 2 -->
+                <div class="group relative rounded-3xl overflow-hidden shadow-xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Vida Selvagem">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <p class="text-white text-sm font-bold">Fauna em Equilíbrio</p>
+                    </div>
+                </div>
+                <!-- Imagem 3 -->
+                <div class="group relative rounded-3xl overflow-hidden shadow-xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Campos Verdes">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <p class="text-white text-sm font-bold">Ecossistemas Rurais</p>
+                    </div>
+                </div>
+                <!-- Imagem 4 -->
+                <div class="group relative rounded-3xl overflow-hidden shadow-xl aspect-square">
+                    <img src="https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Energia Limpa">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <p class="text-white text-sm font-bold">Futuro Sustentável</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secção dos 5 Rs -->
+    <section id="educacao" class="py-20 bg-emerald-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl font-black text-emerald-950 mb-4">A Regra dos 5 Rs</h2>
+                    <p class="text-slate-600">A sustentabilidade começa com a mudança de hábitos. Segue estes passos para um estilo de vida mais eco-friendly.</p>
+                </div>
+                <div class="hidden md:block h-px bg-emerald-200 flex-grow mx-10 mb-6"></div>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="bg-white p-8 rounded-[32px] text-center border-b-4 border-emerald-500 shadow-sm image-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/1611/1611181.png" class="w-12 h-12 mx-auto mb-4" alt="Ícone Recusar">
+                    <h5 class="font-bold text-emerald-900">Recusar</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Diz não a plásticos de uso único.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] text-center border-b-4 border-emerald-500 shadow-sm image-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2312/2312211.png" class="w-12 h-12 mx-auto mb-4" alt="Ícone Reduzir">
+                    <h5 class="font-bold text-emerald-900">Reduzir</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Compra apenas o necessário.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] text-center border-b-4 border-emerald-500 shadow-sm image-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/946/946748.png" class="w-12 h-12 mx-auto mb-4" alt="Ícone Reutilizar">
+                    <h5 class="font-bold text-emerald-900">Reutilizar</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Dá uma nova vida aos objetos.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] text-center border-b-4 border-emerald-500 shadow-sm image-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/3299/3299935.png" class="w-12 h-12 mx-auto mb-4" alt="Ícone Reciclar">
+                    <h5 class="font-bold text-emerald-900">Reciclar</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Separa o lixo corretamente.</p>
+                </div>
+                <div class="bg-white p-8 rounded-[32px] text-center border-b-4 border-emerald-500 shadow-sm image-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2333/2333513.png" class="w-12 h-12 mx-auto mb-4" alt="Ícone Repensar">
+                    <h5 class="font-bold text-emerald-900">Repensar</h5>
+                    <p class="text-[10px] text-slate-500 mt-2">Avalia os teus impactos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Moderno -->
+    <section id="quiz" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto bg-slate-900 rounded-[50px] overflow-hidden shadow-2xl flex flex-col md:flex-row">
+                <div class="md:w-1/3 bg-emerald-600 p-12 text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-4xl font-black mb-4 leading-tight">Mestre da Ecologia</h3>
+                        <p class="opacity-80">Testa os teus conhecimentos e ganha pontos para o teu legado.</p>
+                    </div>
+                    <div id="quiz-score" class="text-5xl font-black mt-8">00</div>
+                </div>
+                
+                <div class="md:w-2/3 p-12 lg:p-20 flex flex-col justify-center">
+                    <div id="quiz-content">
+                        <div id="q-text" class="text-2xl font-bold text-white mb-10 leading-relaxed">
+                            O papel pode ser reciclado até 7 vezes antes das suas fibras ficarem muito curtas?
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <button onclick="check(true)" class="w-full text-left bg-white/10 hover:bg-emerald-500 p-6 rounded-2xl transition-all border border-white/10 text-white font-bold flex justify-between items-center group">
+                                Verdadeiro
+                                <i class="fas fa-check opacity-0 group-hover:opacity-100 transition"></i>
+                            </button>
+                            <button onclick="check(false)" class="w-full text-left bg-white/10 hover:bg-rose-500 p-6 rounded-2xl transition-all border border-white/10 text-white font-bold flex justify-between items-center group">
+                                Falso
+                                <i class="fas fa-times opacity-0 group-hover:opacity-100 transition"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Estado de Resultado -->
+                    <div id="quiz-result" class="hidden text-center animate-in fade-in zoom-in duration-500">
+                        <div id="res-icon" class="text-6xl mb-6">🌿</div>
+                        <h4 id="res-title" class="text-3xl font-black text-white mb-4">Boa resposta!</h4>
+                        <p id="res-desc" class="text-emerald-400 text-lg mb-8"></p>
+                        <button onclick="next()" class="bg-emerald-500 text-white px-10 py-4 rounded-full font-black hover:bg-emerald-400 transition">Próxima Pergunta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé Minimalista -->
+    <footer class="bg-emerald-950 text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-emerald-950">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <span class="font-black text-xl tracking-tighter uppercase">EcoLegado</span>
+                    </div>
+                    <p class="text-emerald-500/60 max-w-xs text-sm">Um projeto de futuro da EEB Profª Valdete Inês Piazera Zindars, construído por quem acredita no amanhã.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-4">
+                    <div class="flex flex-col gap-2">
+                        <span class="text-xs font-black text-emerald-500 uppercase tracking-widest mb-2">Equipa</span>
+                        <span class="text-sm opacity-60">Lívia Fagundes</span>
+                        <span class="text-sm opacity-60">Letícia Cristine</span>
+                        <span class="text-sm opacity-60">Ana Beatriz</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <span class="text-xs font-black text-emerald-500 uppercase tracking-widest mb-2">Equipa</span>
+                        <span class="text-sm opacity-60">Maria Eloyza</span>
+                        <span class="text-sm opacity-60">Lara Pasche</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <span class="text-xs font-black text-emerald-500 uppercase tracking-widest mb-2">Redes</span>
+                        <a href="#" class="text-sm opacity-60 hover:opacity-100"><i class="fab fa-instagram mr-2"></i>Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-20 pt-8 border-t border-white/5 text-center text-[10px] font-bold text-emerald-800 uppercase tracking-[0.3em]">
+                &copy; 2026 Todos os direitos reservados
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal items-center justify-center p-6">
+        <div class="bg-white p-12 rounded-[40px] shadow-2xl max-w-sm w-full relative">
+            <button onclick="closeLogin()" class="absolute top-8 right-8 text-slate-300 hover:text-emerald-600 transition">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <h3 class="text-2xl font-black text-emerald-950 mb-2">Painel</h3>
+            <p class="text-slate-500 text-sm mb-8">Introduz a tua chave de acesso.</p>
+            <input type="password" id="pass" placeholder="••••" class="w-full bg-slate-50 border border-slate-100 p-5 rounded-2xl mb-4 text-center text-2xl tracking-[0.5em] focus:border-emerald-500 outline-none transition">
+            <button onclick="login()" class="w-full bg-emerald-600 text-white py-5 rounded-2xl font-bold shadow-lg shadow-emerald-200 hover:bg-emerald-700 transition">Entrar</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { q: "O papel pode ser reciclado até 7 vezes?", a: true, info: "Verdadeiro! Depois disso, as fibras ficam curtas demais para formar novas folhas." },
+            { q: "As pilhas devem ser descartadas no lixo comum pois são pequenas.", a: false, info: "Falso! Contêm metais pesados tóxicos e devem ir para o Pilhão." },
+            { q: "O plástico representa 80% de todo o lixo marinho.", a: true, info: "Infelizmente sim. É um dos maiores problemas dos nossos oceanos." },
+            { q: "Apagar as luzes quando sais de uma sala não poupa energia real.", a: false, info: "Mentira! Cada minuto conta na redução da pegada de carbono da escola." }
+        ];
+
+        let index = 0;
+        let score = 0;
+
+        function check(val) {
+            const q = questions[index];
+            const content = document.getElementById('quiz-content');
+            const result = document.getElementById('quiz-result');
+            
+            if(val === q.a) {
+                score += 10;
+                document.getElementById('res-title').innerText = "Boa Escolha! 🌿";
+                document.getElementById('res-icon').innerText = "🌟";
+            } else {
+                document.getElementById('res-title').innerText = "Podemos Melhorar 💡";
+                document.getElementById('res-icon').innerText = "💭";
+            }
+
+            document.getElementById('quiz-score').innerText = score.toString().padStart(2, '0');
+            document.getElementById('res-desc').innerText = q.info;
+            content.classList.add('hidden');
+            result.classList.remove('hidden');
+        }
+
+        function next() {
+            index = (index + 1) % questions.length;
+            document.getElementById('q-text').innerText = questions[index].q;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-content').classList.remove('hidden');
+        }
+
+        // Sistema de QR Code Dinâmico
+        window.onload = () => {
+            const url = window.location.href;
+            document.getElementById('qr-code').src = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(url)}`;
+        };
+
+        function openLogin() { document.getElementById('login-modal').style.display = 'flex'; }
+        function closeLogin() { document.getElementById('login-modal').style.display = 'none'; }
+        function login() {
+            if(document.getElementById('pass').value === '1234') {
+                alert('Acesso autorizado ao sistema EcoLegado!');
+                closeLogin();
+            } else {
+                alert('Chave incorreta.');
+            }
+        }
+    </script>
+</body>
+</html>
